@@ -1,0 +1,11 @@
+{
+  "files": [
+    "variationB/variation.css",
+    "variationB/variation.js"
+  ],
+  "inject": "window.convert",
+  "urls": [
+    "https://gosendbox.netlify.app/cheap-flights/from-Boston-Massachusetts/BOS/",
+    "https://gosendbox.netlify.app/cheap-flights/to-Las-Vegas-Nevada/LAS/"
+  ]
+}

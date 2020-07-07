@@ -1,0 +1,387 @@
+.list.-loading.-hotels .details-mobile .tab-group #overview {
+  display: none;
+}
+
+html body .list.-loading.-hotels .actions.pricing.-deal {
+  margin-top: 8px;
+}
+
+html body .page-search {
+  margin-top: 20px;
+}
+
+.list.-loading.-hotels .price-item a span,
+#destinations-app .price-list .price-item .link .price {
+  font-size: 13px;
+}
+
+.body #overview {
+  display: none;
+}
+
+.list.-loading.-hotels .body:before {
+  content: "More Deals";
+  position: absolute;
+  left: 33%;
+  font-size: 13px;
+  color: #102b52;
+  font-weight: 600;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .image {
+  margin-right: 1.1875rem;
+  min-width: 14.1875rem;
+  width: 14.1875rem;
+}
+
+.list.-loading.-hotels .header .editor-loves ul {
+  margin-bottom: 0;
+}
+
+html body .list.-loading.-hotels .details {
+  display: flex !important;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .body .tabs {
+  width: 100%;
+  margin-top: 13px;
+}
+
+html body #destinations-app .list.-loading.-hotels .pricing.-deal .deal {
+  display: flex;
+  justify-content: space-between;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .rating {
+  display: none;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .title {
+  font-size: 1.5rem;
+  margin-bottom: 0px !important;
+
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .address {
+  color: #77746f;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 2px !important;
+  margin-bottom: 5px !important;
+  display: none;
+}
+
+html body .list.-loading.-hotels .bm-address {
+  display: block !important;
+}
+
+html body #destinations-app .list.-loading.-hotels .pricing .deal-price {
+  font-size: 35px;
+  text-align: left;
+}
+
+.list.-loading.-hotels .body .tab-control {
+  display: none;
+}
+
+html body .list.-loading.-hotels .details .header {
+  width: 60%;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .body {
+  width: 40%;
+  margin-left: 23px;
+  position: relative;
+}
+
+.list.-loading.-hotels .tab-group #amenities,
+#overview h4 {
+  display: none;
+}
+
+html body #destinations-app .list.-loading.-hotels .tabs .tab-content {
+  padding: 0;
+}
+
+.list.-loading.-hotels .header .editor-loves ul li {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+html body #destinations-app .list.-loading.-hotels .tabs .tab-content[aria-hidden=true] {
+  left: inherit;
+  position: inherit;
+  top: inherit;
+}
+
+.list.-loading.-hotels .actions.pricing.-deal .deal a {
+  width: 147px !important;
+  height: 33px !important;
+  text-transform: capitalize;
+  font-weight: 400 !important;
+}
+
+html body #destinations-app .list.-loading.-hotels .pricing .deal-site {
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+html body #destinations-app .list.-loading.-hotels .list .item {
+  border: 1px solid #ccc;
+  padding: 20px 12px 20px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden !important;
+  position: relative;
+}
+
+.list.-loading.-hotels h3.title .tab-content+div {
+  display: none;
+}
+
+.list.-loading.-hotels div#overview .learn-more {
+  font-size: 13px;
+  font-weight: 400 !important;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .body .tabs.-reduced:before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  width: 1px;
+  height: 145%;
+  background-color: gainsboro;
+  top: -26px;
+  left: -10px;
+}
+
+html body #destinations-app .list.-loading.-hotels .item .details .body .tabs.-reduced .tab-content {
+  margin-top: 10px;
+}
+
+html body #destinations-app .list.-loading.-hotels .price-list .view-all {
+  color: #0296A8;
+  font-size: 13px;
+}
+
+html body .item .image img {
+  border-radius: 5px;
+}
+
+html body .list.-loading.-hotels .query {
+  display: none !important;
+}
+
+
+@media screen and (max-width: 414px) {
+  .list.-loading.-hotels .actions.pricing.-deal .deal a {
+    width: 90px !important;
+    font-size: 12px !important;
+    padding: 0;
+    text-transform: capitalize;
+    font-weight: 400;
+    height: 28px !important;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .image {
+    margin-right: 15px;
+    min-width: 40%;
+    width: 40%;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item {
+    padding: 0px 6px 10px 8px;
+    border-style: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    margin-bottom: 15px;
+  }
+
+  html body .list.-loading.-hotels .details .header {
+    width: 100%;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details {
+    flex: 0 0 55%;
+    width: 55%;
+  }
+
+  .list.-loading.-hotels .details-mobile .actions.pricing.-deal {
+    display: none;
+  }
+
+  #destinations-app .list.-loading.-hotels .item .details-mobile {
+    margin-top: 0;
+  }
+
+
+  html body #destinations-app .list.-loading.-hotels .item .details .title {
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .address {
+    margin-top: 0;
+
+
+  }
+
+  html body #destinations-app .list.-loading.-hotels .tabs .tab-content[aria-hidden=true] {
+    margin-top: 5px !important;
+    text-align: center;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .pricing .deal-price {
+    font-size: 20px;
+  }
+
+  #destinations-app .list.-loading.-hotels .pricing .deal-site {
+    font-size: 12px;
+  }
+
+
+}
+
+#destinations-app .list.-loading.-hotels .item .details-mobile,
+div#prices {
+  margin-top: 10px !important;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 415px) {
+
+
+
+  ul.price-list {
+    text-align: center;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .tabs .tab-content[aria-hidden=true] {
+    margin-top: 0;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .address {
+    margin-top: 0;
+  }
+
+  /* html body .actions.pricing.-deal{
+    margin-top: 0;
+  } */
+  html body #destinations-app .list.-loading.-hotels .item {
+    flex-wrap: inherit;
+  }
+
+  html body .list.-loading.-hotels .details .header {
+    width: 100%;
+  }
+
+  .list.-loading.-hotels .details-mobile .actions.pricing.-deal {
+    display: none;
+    border-bottom: none;
+  }
+
+  html body .list.-loading.-hotels .details {
+    flex: inherit !important;
+  }
+
+}
+
+@media screen and (max-width: 1023px) {
+  .list.-loading.-hotels .details-mobile .tab-control {
+    display: none;
+  }
+
+  html body .list.-loading.-hotels .actions.pricing.-deal {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .tabs .tab-group {
+    border-top: none;
+    margin-top: 0;
+  }
+
+  .list.-loading.-hotels #prices ul li {
+    display: none;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .tabs .tab-content[aria-hidden=true] {
+    padding-left: 0 !important;
+    padding-right: 0;
+  }
+
+  .bmshow_list li {
+    display: block !important;
+  }
+}
+
+
+
+@media screen and (max-width: 1280px) and (min-width: 1023px) {
+  html body #destinations-app .list.-loading.-hotels .item .details .body .tabs.-reduced:before {
+    left: -6px;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .image {
+    min-width: 11.1875rem;
+
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .body {
+    width: 50%;
+    margin-left: 11px;
+  }
+
+  html body .list.-loading.-hotels .details .header {
+    width: 57%;
+  }
+
+  #destinations-app .list.-loading.-hotels .price-list .price-item .link .site {
+    font-size: 12px;
+  }
+
+  #destinations-app .list.-loading.-hotels .price-list .price-item .link .price {
+    font-size: 12px;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .title {
+    font-size: 19px;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .address {
+    margin-top: 0;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .pricing .deal-price {
+    font-size: 20px;
+
+  }
+
+  .actions.pricing.-deal .deal a {
+    width: 103px !important;
+    font-size: 13px !important;
+    padding: 0;
+  }
+
+  #destinations-app .list.-loading.-hotels .item .details-mobile {
+    margin-top: 0;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .address {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .item .details .title {
+    font-size: 20px;
+  }
+
+  html body #destinations-app .list.-loading.-hotels .pricing .deal-price {
+    font-size: 22px;
+
+  }
+
+  .actions.pricing.-deal .deal a {
+    width: 91px !important;
+    font-size: 12px !important;
+  }
+}

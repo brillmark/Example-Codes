@@ -1,0 +1,170 @@
+/* body padding */
+body {
+  padding-top: 191px;
+}
+
+/* sticky header */
+.headernav {
+  top: 107px;
+}
+
+html body .bm_giftGuide-banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+  max-width: 1400px;
+}
+
+.-nav-scroll .bm_giftGuide-banner-outer,
+.bm_giftGuide-banner-outer {
+  cursor: pointer;
+  background-image: url('http://cdn-3.convertexperiments.com/uf/10025040/10024669/1574600318group-3.png');
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-size: cover;
+  position: fixed;
+  top: 0px;
+  display: none;
+  min-height: 111px;
+  margin-top: -3px;
+  z-index: 15;
+  background-position: center;
+  border-bottom: solid 2px #cccccc;
+  text-decoration: none !important;
+
+}
+
+html body .bm_giftGuide-content {
+  display: flex;
+  align-items: flex-end;
+}
+
+html body .bm_giftGuide-content img {
+  width: 50px;
+}
+
+html body .bm_giftGuide-content p {
+  color: #000000;
+  margin: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-family: inherit;
+}
+
+html body .bm_giftGuide-content p+p {
+  font-size: 22px;
+
+}
+
+html body .bm_giftGuide-content>div {
+  margin-right: 12px;
+}
+
+.bm_giftGuide-content>div:last-child {
+  margin-bottom: -4px;
+}
+
+html #navheader .nav a {
+  font-size: 11px !important;
+}
+
+html body .bm_shop-btn span {
+  background-color: #ff8100;
+  margin-left: 40px;
+  cursor: pointer;
+  height: 55px;
+  width: 270px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.bm_giftGuide-content>div {
+  margin: 0px 5px;
+}
+
+.bm_closeBtn {
+  font-size: 34px;
+  color: #000000;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+li.bm_giftGuideItem img {
+  vertical-align: sub;
+}
+
+body {
+  padding-top: 0;
+}
+
+
+@media screen and (max-width:1199px) and (min-width:1024px) {
+  html body .bm_shop-btn span {
+    width: 204px;
+    height: 52px;
+  }
+
+  html body .bm_giftGuide-content p+p {
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width:767px) {
+
+  .-nav-scroll .bm_giftGuide-banner-outer,
+  .bm_giftGuide-banner-outer {
+    background-image: url('http://cdn-3.convertexperiments.com/uf/10025040/10024674/1574417282mobilebanner.png');
+    min-height: 79px;
+    text-align: center;
+    z-index: 15px;
+  }
+
+  .bm_giftGuide-content>div:first-child {
+    display: none;
+  }
+
+  .-nav-scroll .headernav,
+  .headernav {
+    top: 75px;
+  }
+
+  html body .bm_giftGuide-banner {
+    flex-direction: column;
+    padding-left: 0px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  html body .bm_giftGuide-content p {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  html body .bm_giftGuide-content p+p {
+    font-size: 12px;
+  }
+
+  html body .bm_shop-btn span {
+    width: 101px;
+    height: 23px;
+    font-size: 12px;
+    margin: 0px;
+    margin-top: 3px;
+  }
+
+  .bm_closeBtn {
+    font-size: 25px;
+    top: 0px;
+    right: 8px;
+  }
+}

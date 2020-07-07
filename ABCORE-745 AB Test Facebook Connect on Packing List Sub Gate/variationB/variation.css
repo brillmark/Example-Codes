@@ -1,0 +1,105 @@
+@media screen and (min-width: 1024px) {
+  html body .popUpSFG .emailWrapper .submit:focus {
+    outline: none !important;
+  }
+
+  .popUpSFG .emailWrapper input {
+    height: 44px;
+
+  }
+
+  html body .popUpSFG .contentWrap .errorMessage p.emailPara {
+    padding-top: 0;
+  }
+
+  html body .popUpSFG .contentWrap .emailWrapper input {
+    padding: 0px 4px 7px 26px;
+  }
+
+  html body .sign-up-desc,
+  html body .popUpSFG .sign-up-desc h6 {
+    text-align: left !important;
+  }
+
+  html body .popUpSFG .outerWrap .contentWrap {
+    right: -4% !important;
+  }
+
+  html body .ortext {
+    margin-top: 23px !important;
+    font-size: 18px !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    color: #555 !important;
+  }
+
+  html body .popUpSFG .sign-up-desc p {
+    font-size: 24px;
+  }
+
+  html body .popUpSFG .sign-up-desc p.no-thanks {
+    margin-top: 28px !important;
+  }
+
+  html body .popUpSFG .emailWrapper .submit {
+    margin-top: 0px !important;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    position: absolute !important;
+    width: 191px;
+    right: 100px;
+    height: 44px;
+    line-height: 20px;
+  }
+
+  .bM_fb_btn {
+    background-color: #1877F2;
+    height: 45px;
+    width: 235px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+
+  html body .emailWrapper .fb_iframe_widget {
+    display: none;
+  }
+
+  .bM_fb_btn span {
+    margin-right: 8px;
+    display: inline-block;
+  }
+
+  .sign-up-desc h6+p p {
+    line-height: 32px;
+  }
+
+  .popUpSFG .errorSignUp .emailWrapper input {
+    box-shadow: none;
+  }
+
+  .popUpSFG .successMsg {
+    margin-right: 28%;
+  }
+}
+
+@media screen and (max-width: 1260px) and (min-width: 1024px) {
+  html body .popUpSFG .emailWrapper .submit {
+    width: 131px;
+  }
+
+  html body .popUpSFG .outerWrap .contentWrap {
+    right: -1px !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+
+  .bM_fb_btn,
+  html body .emailWrapper .fb_iframe_widget {
+    display: none;
+  }
+
+}

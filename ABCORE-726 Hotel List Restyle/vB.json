@@ -1,0 +1,10 @@
+{
+	"files": [
+		"variationB/variation.css",
+		"variationB/variation.js"
+	],
+	"inject": "window.convert",
+	"urls": [
+		"https://gosendbox.netlify.app/"
+	]
+}

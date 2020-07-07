@@ -1,0 +1,745 @@
+.bm-imgSection a[href="https://gosendbox.netlify.app/2BbkqPA"] {
+  position: relative;
+}
+
+.bm-imgSection a[href="https://gosendbox.netlify.app/2BbkqPA"]::after {
+  position: absolute;
+  display: inline-block;
+  content: 'Mark Nason Los Angeles';
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+  font-size: 12px;
+  line-height: inherit;
+  color: #333;
+  font-style: italic;
+  text-align: left;
+  text-shadow: none;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+}
+
+.bm-pilows .entry-content .bm-choice-section:nth-child(6)>div.choice-text>h3 {
+  text-transform: none;
+}
+
+html body .main.main--hero .hero,
+header.post-header .post-meta a+time {
+  display: none;
+}
+
+.bm-topBnner {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header.post-header {
+  margin-bottom: 0;
+}
+
+.post-content .byline {
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+header.post-header .post-meta a {
+  font-size: 16px;
+  color: #333333;
+  text-transform: capitalize !important;
+}
+
+.post-meta {
+  margin-bottom: 0;
+}
+
+.bm-per {
+  font-size: 16px;
+  color: #333;
+  line-height: 24px;
+}
+
+.bm-item {
+  box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.35);
+  display: flex;
+  width: 32%;
+  justify-content: center;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.bm-item-text h3 {
+  margin-top: 0;
+  text-transform: capitalize;
+  color: #EAC03C;
+}
+
+.bmEditor-choice .bm-item-cta {
+  text-align: center;
+  margin: 15px 0;
+  background-color: #E7755D;
+  border-radius: 25px;
+  height: 40px;
+  line-height: 35px;
+  color: #fff;
+  margin-bottom: 24px;
+  width: 160px;
+  height: 35px;
+  display: inline-block;
+}
+
+.bmEditor-choice .bm-item-cta button {
+  cursor: pointer;
+  outline: none;
+}
+
+.bm-item-text h3:before {
+  content: '';
+  height: 40px;
+  width: 18px;
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  top: 0;
+
+}
+
+
+
+.product-img {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.product-img img {
+  width: 212px;
+  height: 212px;
+}
+
+.bm-item-cta button {
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  outline: none;
+}
+
+.bm-item-cta {
+  text-align: center;
+  margin: 15px 0;
+  background-color: #E7755D;
+  border-radius: 25px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.item-contain {
+  margin-top: 36px;
+}
+
+.bm-item.silver h3 {
+  color: #6B7780;
+}
+
+.bm-item.bronze h3 {
+  color: #CC6633;
+}
+
+.bm-item.gold h3:before {
+  background-image: url(https://gosendbox.netlify.app/mnvhotWq/kneQ3V/shape.png);
+}
+
+.bm-item.silver h3:before {
+  background-image: url(https://gosendbox.netlify.app/mnvhotWq/2cSSk9/shape.png);
+
+}
+
+.bm-item.bronze h3:before {
+  background-image: url(https://gosendbox.netlify.app/mnvhotWq/c0Zitb/shape.png);
+
+
+}
+
+.bm-item-text {
+  padding-left: 34px;
+  position: relative;
+}
+
+.bm-item-text p {
+  font-size: 14px;
+  color: #394955;
+  line-height: 14px;
+  color: #394955;
+}
+
+.item-name p {
+  margin-top: 13px;
+  line-height: 23px;
+  color: #394955;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  min-height: 69px;
+}
+
+.item-contain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-contain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bm-choice-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  border-bottom: 1px solid #D1D1D1;
+}
+
+.choice-text ul {
+  margin-top: 5px;
+}
+
+.choice-text ul li:before {
+  content: " ";
+  background-image: url(https://gosendbox.netlify.app/mnvhotWq/YUliEI/check_circle.png);
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: -21px;
+}
+
+.choice-text ul li {
+  list-style: none;
+  padding-left: 7px;
+  position: relative;
+}
+
+.choice-text h5 {
+  margin-top: 13px;
+
+}
+
+.bm-imgSection {
+  width: 30%;
+}
+
+.bm-imgSection a {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.bm-imgSection a img {
+  width: 100%;
+}
+
+.bm-choice-item h2 {
+  width: 100%;
+  font-size: 36px;
+  color: #333333;
+  text-transform: capitalize;
+}
+
+.choice-text h3 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.choice-text {
+  width: 70%;
+}
+
+.bm-item-text-mobile {
+  display: none;
+}
+
+.bm-video h2 {
+  margin: 20px 0;
+}
+
+html .archive .leaderboard-ad,
+html .error404 .leaderboard-ad,
+html .page-template-default .leaderboard-ad,
+html .search-results .leaderboard-ad,
+html .single .leaderboard-ad {
+  margin-top: 0px !important;
+}
+
+.bmEditor-choice.bmEditor-choice-winner h2 {
+  font-size: 32px;
+}
+
+.bmEditor-choice.bmEditor-choice-alfa h2 {
+  font-size: 30px;
+}
+
+/* Top Banner */
+img.bm-top-ptoduct {
+  left: 20px;
+  background-size: cover;
+  top: -33px;
+  z-index: 1;
+  position: absolute;
+  width: 190px;
+  height: 190px;
+}
+
+.bm-backpacks img.bm-top-ptoduct {
+  width: 225px;
+  height: 225px;
+  top: -46px;
+}
+
+.bm-topBnner-inr {
+  text-align: center;
+  max-width: 1353px;
+  width: 100%;
+  margin: 0 auto;
+  background: url('https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571942974hero-image.png');
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 227px;
+  background-size: cover;
+}
+
+.bm-topBnner-text {
+  padding-left: 19px;
+}
+
+.bm-topBnner-text p {
+  margin: 0px;
+  text-align: left;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+p.bm-top-heading {
+  font-size: 27px;
+  padding: 20px 0px;
+  padding-bottom: 0px;
+  font-weight: 600;
+  transform: scaleY(1.1);
+}
+
+p.bm-top-subheading {
+  font-size: 42px;
+  padding: 33px 0px;
+  padding-top: 25px;
+  font-weight: 600;
+  font-family: Circular, sans-serif;
+  transform: scaleY(1.2);
+}
+
+/* Extra Content hide */
+html body .entry-content>h2:nth-child(64) {
+  display: block !important;
+}
+
+.entry-content p.p1,
+.entry-content h2.p1,
+.entry-content h2.p1+p,
+.entry-content script+p,
+.entry-content .related.single.cf,
+.entry-content .content-ad,
+.bm-video+div+p,
+.entry-content p+h2,
+.entry-content .related.single.cf+h2,
+.entry-content figure,
+.entry-content .bm-video+p,
+.entry-content p+.cta-widget.theme-st,
+.entry-content .cta-widget.theme-st+h2 {
+  display: none;
+}
+
+ul+p a {
+  display: none;
+}
+
+.bm-video iframe {
+  width: 100% !important;
+}
+
+.choice-text .read-more {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bm-video+div>p {
+  padding-left: 13px;
+  position: relative;
+  margin-top: 0 !important;
+}
+
+.bm-video+div>p:before {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #000;
+  display: inline-block;
+  border-radius: 100px;
+  content: '';
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+}
+
+.bm-video+div>p:nth-child(8) {
+  padding-left: 0px;
+  padding-top: 10px;
+  margin-top: 10px !important;
+  border-top: 1px solid #D1D1D1;
+}
+
+.bm-video+div>p:nth-child(8)::before {
+  content: none;
+}
+
+@media screen and (max-width: 1241px) {
+  .bm-item-text h3 {
+    font-size: 18px;
+  }
+
+  .item-name p {
+    font-size: 16px;
+  }
+
+  .bm-item-text h3:before {
+    left: 12px;
+  }
+
+  .bm-item-text p {
+    font-size: 12px;
+  }
+
+  .bm-item-cta button {
+    font-size: 14px;
+  }
+
+  .bm-item-cta {
+    margin-bottom: 20px;
+    margin: 0 auto;
+    max-width: 80%;
+    height: 30px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width:1024px) and (max-width:1199px) {
+  p.bm-top-subheading {
+    font-size: 35px !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .bm-topBnner-img {
+    width: 36px;
+  }
+
+  img.bm-top-ptoduct {
+    left: 18px;
+    top: -37px;
+    width: 182px;
+    height: 189px;
+  }
+
+  .bm-backpacks img.bm-top-ptoduct {
+    left: 2px;
+    top: -44px;
+    width: 196px;
+    height: 195px;
+  }
+
+  .bm-womenshoes img.bm-top-ptoduct {
+    left: 18px;
+    top: -25px;
+    width: 172px;
+    height: 174px;
+  }
+
+  .bm-womenshoes p.bm-top-subheading {
+    font-size: 25px;
+    line-height: 26px;
+  }
+
+  p.bm-top-heading {
+    font-size: 22px;
+    padding: 20px 0px;
+    padding-bottom: 0px;
+  }
+
+  p.bm-top-subheading {
+    font-size: 29px;
+    padding: 22px 0px;
+    padding-top: 15px;
+  }
+
+  .bm-backpacks .bm-topBnner-inr {
+    padding-left: 198px;
+  }
+
+  .bm-topBnner-inr {
+    padding-left: 220px;
+  }
+
+  .bm-topBnner-inr::after {
+    left: -32px;
+    top: -77px;
+    width: 205px;
+    height: 255px;
+  }
+
+  .bm-item {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .product-img img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bm-imgSection a[href="https://gosendbox.netlify.app/2BbkqPA"]::after {
+    text-align: center;
+  }
+
+  /* Hero Banner */
+  .bm-topBnner {
+    margin-top: 41px;
+  }
+
+  img.bm-top-ptoduct {
+    left: 2px;
+    top: -25px;
+    width: 105px;
+    height: 108px;
+  }
+
+  .bm-carryon img.bm-top-ptoduct {
+    width: 128px;
+    height: 124px;
+  }
+
+  .bm-backpacks img.bm-top-ptoduct {
+    left: 2px;
+    top: -25px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .bm-backpacks .bm-topBnner-inr {
+    padding-left: 98px !important;
+  }
+
+  .bm-topBnner-text {
+    padding-left: 13px;
+  }
+
+  .bm-topBnner-inr {
+    padding-left: 119px !important;
+  }
+
+  .bm-topBnner-img {
+    width: 22px;
+  }
+
+  p.bm-top-heading {
+    font-size: 12px;
+    padding: 2px 0px;
+    padding-bottom: 0px;
+  }
+
+  p.bm-top-subheading {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Circular, sans-serif;
+    transform: scaleY(1.2);
+    line-height: 18px;
+    padding-bottom: 11px;
+    padding-top: 0px;
+  }
+
+  .bm-womenshoes p.bm-top-subheading {
+    line-height: 16px;
+    font-size: 14px !important;
+  }
+
+  .bm-womenshoes img.bm-top-ptoduct {
+    left: 11px;
+    top: -14px;
+    width: 90px;
+    height: 101px;
+  }
+
+  .bm-topBnner-inr::after {
+    width: 129px;
+    height: 142px;
+    left: -23px;
+    top: -47px;
+  }
+
+
+  .bm-item-cta button {
+    font-size: 16px;
+  }
+
+  .bm-item a {
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+  }
+
+  .item-name p {
+    padding: 0 28px;
+  }
+
+  .bm-item-cta {
+    margin-bottom: 20px;
+    margin: 0 auto;
+    max-width: 80%;
+    height: 40px;
+    line-height: 37px;
+    margin-bottom: 20px;
+  }
+
+  /* .bm-item-cta {max-width: 80%;} */
+  .bm-item-text-mobile.gold h3::before {
+    background-image: url(https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571035034gold.png) !important;
+  }
+
+  .bm-item-text-mobile.silver h3::before {
+    background-image: url(https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571035059silver.png);
+  }
+
+  .bm-item-text-mobile.bronze h3::before {
+    background-image: url(https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571035008bronz2.png) !important;
+  }
+
+  .bm-item-text-mobile.gold h3::after {
+    background-image: url(https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571035046gold2.png) !important;
+  }
+
+  .bm-item-text-mobile.silver h3::after {
+    background-image: url(https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571035073silver2.png);
+  }
+
+  .bm-item-text-mobile.bronze h3::after {
+    background-image: url(https://cdn-3.convertexperiments.com/uf/10025040/10024674/1571034993bronz.png) !important;
+  }
+
+  .bm-item-text-mobile h3:before {
+    content: '';
+    height: 50px;
+    width: 23px;
+    display: inline-block;
+    position: absolute;
+    left: 39px;
+    top: -30px;
+  }
+
+  .bm-item-text-mobile h3:after {
+    content: '';
+    height: 50px;
+    width: 23px;
+    display: inline-block;
+    position: absolute;
+    right: 36px;
+    top: -31px;
+  }
+
+  .bm-item {
+    margin-bottom: 25px;
+  }
+
+  .item-contain {
+    display: inherit;
+  }
+
+  .bm-item {
+    width: 100%;
+  }
+
+  .bm-choice-section {
+    display: inherit;
+  }
+
+  .bm-imgSection {
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .choice-text {
+    width: 100%;
+  }
+
+  .bm-choice-item h2 {
+    font-size: 24px;
+  }
+
+  .bm-item-text-mobile p {
+    margin-top: 0;
+    line-height: 9px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #394955;
+  }
+
+  .bm-item-text-mobile h3 {
+    margin-top: 0;
+    color: #EAC03C;
+    font-size: 24px;
+    position: relative;
+  }
+
+  .bm-item-text-mobile {
+    text-align: center;
+    margin-top: 15px;
+    display: block;
+    padding: 0 18px;
+  }
+
+  .bm-item-text {
+    display: none;
+  }
+
+  .bmEditor-choice.bmEditor-choice-alfa h2 {
+    line-height: 35px;
+  }
+
+  .bm-item {
+    padding: 0px !important;
+  }
+}
+
+@media screen and (max-width:359px) {
+  .bm-topBnner-img {
+    width: 20px;
+  }
+
+  p.bm-top-subheading {
+    font-size: 13px;
+  }
+
+  .bm-womenshoes p.bm-top-subheading {
+    line-height: 14px;
+    font-size: 11px !important;
+  }
+}
+
+/* read more csss*/
+.bm-choice-section.bm-read-more p {
+  height: 116px !important;
+  overflow: hidden;
+}

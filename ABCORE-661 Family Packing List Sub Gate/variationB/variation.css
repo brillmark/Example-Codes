@@ -1,0 +1,331 @@
+@media screen and (min-width: 1023px) {
+  body .subscribe-modal {
+    max-width: 1183px;
+    max-height: calc(95vh - 1.25rem);
+  }
+
+  .outerWrap+img {
+    display: none;
+  }
+
+  .subscribe-modal.modal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bm_wrap-modal {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .subscribe-modal__content {
+    padding: 0;
+    margin-top: 30px;
+  }
+
+  .subscribe-modal__image {
+    width: 100%;
+    max-width: 478px;
+  }
+
+  .subscribe-modal__title {
+    font-size: 50px;
+  }
+
+  .subscribe-modal__intro p br {
+    display: none;
+  }
+
+  .subscribe-modal__intro p {
+    font-size: 17px;
+    line-height: 21px;
+    color: #232220 !important;
+    margin-top: 20px;
+  }
+
+  .bm_wrap-modal .subscribe-modal__intro:first-child {
+    margin-top: 163px;
+  }
+
+  .form__field-group .subscribe-form__submit {
+    max-width: 179px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  .form__field-group p.no-thanks {
+    text-align: center;
+  }
+
+  .span.subscribe-form__email-icon {
+    display: none;
+  }
+
+  .form__field-group.subscribe-form__email-input input::placeholder {
+    color: #9E9E9E;
+    font-size: 16px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+  }
+
+  .bm_privacy {
+    bottom: 0px;
+    position: absolute;
+    left: 57%;
+
+  }
+
+  .form__field-group.subscribe-form__email-input .subscribe-form__email-icon {
+    display: none;
+  }
+
+
+  input[type=email].subscribe-form__input {
+    padding: 14px 14px 14px 16px;
+    background: #ffffff;
+  }
+
+  .thanks .subscribe-modal__thanks {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+
+  .thanks .bm_wrap-modal {
+    display: none;
+  }
+
+  .modal__outro__close {
+    fill: #000;
+  }
+
+
+
+
+
+
+
+
+
+}
+
+.bm_img {
+  width: 495px;
+  height: 100%;
+  text-align: center;
+  background: #00bbd2;
+  background: -moz-linear-gradient(-45deg, #00bbd2 0%, #00bbd2 49%, #c3eff5 49%);
+  background: -webkit-linear-gradient(-45deg, #00bbd2 0%, #00bbd2 49%, #c3eff5 49%);
+  background: linear-gradient(135deg, #00bbd2 0%, #00bbd2 49%, #c3eff5 49%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3399cc', endColorstr='#fbe9e5', GradientType=1)
+}
+
+
+
+
+.bm_img-upper p {
+  margin-top: 0;
+  color: #ffffff;
+  font-family: Circular, sans-serif;
+}
+
+.bm_img-upper .bm_title {
+  font-size: 24px;
+  padding-top: 27px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  font-family: "Work Sans", sans-serif;
+}
+
+.bm_img-upper .bm_title_heading {
+  font-size: 50px;
+  font-weight: 500;
+  font-family: "Work Sans", sans-serif;
+  line-height: 52px;
+}
+
+.pad_img {
+  max-width: 454px;
+  margin: 0 auto;
+  margin-top: 21px !important;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1023px) {
+  .subscription-gate .overlay-bg {
+    display: none;
+  }
+
+  body .subscription-gate .gate-wrap {
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    transform: translate(0);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .33);
+    border-radius: 20px 20px 0 0;
+    background-image: none;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 !important;
+  }
+
+  .popUpSFG.show {
+    background-color: transparent;
+  }
+
+  .bm_img {
+    display: none;
+  }
+
+  .pad_img {
+    display: none;
+  }
+
+  .popUpSFG .outerWrap {
+    background-image: none;
+    height: 1rem;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  .popUpSFG .closePopup.closePopup-mobile {
+    display: block !important
+  }
+
+  .closePopup {
+    top: 5px !important;
+    right: 4px !important;
+  }
+
+  .popUpSFG .submit {
+    font-size: 18px;
+  }
+
+  body .subscription-gate .gate-content-wrap {
+    background: #fff;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bm_privacy p {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .subscribe-modal__intro.subscribe-modal__mobile p br {
+    display: none;
+  }
+
+  .form__field-group input {
+    border: 0;
+    border-radius: 0 .375rem .375rem 0;
+    background: #E95D85;
+    background: linear-gradient(to bottom, #e95d85 0, #e33467 100%);
+    color: #fff;
+    height: 2.5rem;
+    font-size: .8125rem;
+    font-weight: 700;
+    padding: 0;
+    text-transform: uppercase;
+    text-align: center;
+    width: 7.5625rem;
+
+  }
+
+  .form__field-group.subscribe-form__email-input input {
+    background: #fff;
+    border: 1px solid #e9e0e0;
+    border-radius: .375rem 0 0 .375rem;
+    font-size: .75rem;
+    height: 2.5rem;
+    padding: 0;
+    width: 12.1875rem;
+    text-align: left;
+    padding-left: 17px;
+  }
+
+  form.subscribe-form {
+    align-items: center;
+    display: flex;
+    height: 2.5rem;
+    position: relative;
+  }
+
+  .form__field-group {
+    margin-bottom: 0;
+    height: auto;
+  }
+
+  body .subscribe-modal__title {
+    font-size: 29px;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  .form__field-group.subscribe-form__email-input {}
+}
+
+p.no-thanks a {
+  color: #9E9E9E;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 25px;
+  text-decoration: underline;
+}
+
+.bm_privacy p {
+  font-size: 12px;
+  color: #9E9E9E;
+}
+
+@media screen and (max-width: 1023px) {
+  p.no-thanks {
+    display: none;
+  }
+}
+
+.popUpSFG .errorMessage p.emailPara {
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+@media screen and (min-width:1024px) and (max-width:1260px) {
+  .gate-content-wrap {
+    right: 14px !important
+  }
+}
+
+@media screen and (min-width:767px) and (max-width:1023px) {
+  .subscribe-modal.modal {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .subscribe-modal__image img {
+    display: none;
+  }
+
+  .subscribe-modal {
+    max-width: 708px;
+  }
+
+  .bm_privacy p {
+    text-align: center;
+  }
+}

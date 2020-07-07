@@ -1,0 +1,76 @@
+html body.newTest .gate-wrap .sign-up-desc {
+  display: none;
+}
+
+html body.newTest .gate-wrap .bm-content h2 {
+  font-size: 36px;
+  color: #363636;
+  margin-top: 5px;
+}
+
+html body.newTest .gate-wrap .bm-content p {
+  font-size: 22px;
+  color: #363636;
+  line-height: 28px;
+}
+
+html body.newTest .gate-wrap .bm-content .fe_location {
+  font-size: 20px;
+  margin-bottom: 25px !important;
+  margin-top: 20px !important;
+  display: flex;
+  align-items: start;
+  max-width: 412px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.bMthanks {
+  margin-top: 23px;
+  display: inline-block;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 13px;
+}
+
+.bm-addbtn {
+  display: block;
+  font-size: 24px;
+  color: #fff !important;
+  max-width: 240px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background: #ff8100;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.bm-content input {
+  border-style: none !important;
+  border-bottom: 1px solid #ff8100 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin-left: 5px;
+  line-height: 20px;
+  outline: none;
+  font-size: 20px !important;
+  font-weight: 600;
+  max-width: 106px;
+}
+
+html body.newTest .subscription-gate .gate-content-wrap {
+  padding-bottom: 10px;
+}
+
+html body .bm-content .fe_location:before {
+  /*background-image: url();*/
+  content: " ";
+  display: inline-block;
+  height: 19px;
+  width: 20px;
+  background-repeat: no-repeat;
+  margin-top: 3px;
+}

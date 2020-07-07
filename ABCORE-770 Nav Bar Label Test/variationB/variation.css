@@ -1,0 +1,15 @@
+#navheader .navbar-nav.main>li.dropdown:nth-child(4),
+#navheader .navbar-nav.main>li.dropdown:nth-child(10) {
+  display: none !important;
+}
+
+.BM_Dropdown p {
+  position: absolute;
+  top: 4px;
+  font-size: 11px;
+  color: #d73b7d;
+}
+
+#navheader li.alerts-login.dropdown a span:first-of-type span {
+  color: #d73b7d;
+}

@@ -1,0 +1,353 @@
+/* For Animation */
+.subscription-gate {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -moz-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@-moz-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Remove Animation */
+.newScreen .subscription-gate {
+  animation: none;
+  -webkit-animation: none;
+}
+
+
+html body.newScreen .sign-up-desc {
+  display: none !important;
+}
+
+html body .gate-content-wrap .sign-up-desc,
+html body .subscription-gate .overlay-bg {
+  display: none;
+}
+
+html body .bm-thanks757 img {
+  margin-right: 10px;
+}
+
+html body .bm-thanks757 {
+  padding: 24px 0px;
+  margin-bottom: 0px !important;
+  display: flex;
+  align-items: center;
+}
+
+.bm-gate .bm-button {
+  display: flex;
+}
+
+html body .subscription-gate .gate-wrap {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3) !important;
+  line-height: 27px;
+  padding: 0px !important;
+}
+
+@media screen and (min-width:768px) {
+
+  /* new style end */
+  html body .subscription-gate .gate-content-wrap input {
+    height: 32px;
+  }
+
+  html body .subscription-gate .gate-content-wrap button {
+    height: 32px;
+    padding: 0rem 3rem !important;
+    font-size: 16px;
+  }
+
+  html body .subscription-gate [style="height: auto;"] .gate-content-wrap {
+    padding-bottom: 0;
+
+  }
+
+  .newScreen .subscription-gate [style="height: auto;"] .gate-content-wrap {
+    padding: 28px;
+    padding-left: 148px;
+    padding-right: 76px;
+  }
+
+  .body.desktop-only {
+    margin-top: -6px;
+    margin-bottom: 0;
+  }
+
+  html body .subscription-gate .gate-content-wrap .body {
+    line-height: 15px;
+  }
+
+  html body .sign-up-desc h2.headline {
+    line-height: 22px;
+  }
+
+  html body .subscription-gate .gate-content-wrap .sign-up-desc .disclaimer {
+    font-size: 11px !important;
+  }
+
+  /* new style end */
+
+  /* For Animation */
+  .subscription-gate {
+    top: 45% !important;
+    left: 10px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  /* ************** */
+  html body .subscription-gate,
+  html body .subscription-gate .overlay-bg {
+    height: auto !important;
+    /* width: auto !important; */
+  }
+
+  /* Overlay Box setting */
+
+  .subscription-gate .gate-wrap {
+    padding: 0px;
+    width: auto !important;
+    background: none !important;
+    height: auto !important;
+    bottom: auto !important;
+    top: 45% !important;
+    left: 10px !important;
+    transform: translateY(-50%) !important;
+  }
+
+
+  html body .subscription-gate .close-gate {
+    color: #ccc;
+  }
+
+  html body .subscription-gate .gate-content-wrap {
+    box-shadow: none;
+    top: 0px !important;
+    background: #fff;
+    padding-left: 134px;
+    position: relative;
+    padding-right: 60px;
+  }
+
+  /* Heading and button Setting*/
+
+  /* text align left */
+  html body .subscription-gate .gate-content-wrap #entry-gate-error,
+  html body .sign-up-desc .email-wrap,
+  html body .sign-up-desc .disclaimer,
+  html body .bm-gate {
+    text-align: left !important;
+  }
+
+  html body .subscription-gate .gate-content-wrap .sign-up-desc .disclaimer,
+  html body .sign-up-desc .email-wrap {
+    margin: 0px !important;
+  }
+
+  /* error font size */
+  html body .subscription-gate .gate-content-wrap #entry-gate-error {
+    font-size: 16px;
+    margin-bottom: 0px !important;
+  }
+
+  html body .subscription-gate .gate-content-wrap input {
+    font-size: 16px !important;
+  }
+
+  /* input Box */
+
+  html body .subscription-gate .gate-content-wrap .email-wrap {
+    width: 65% !important;
+  }
+
+  /* html body .subscription-gate .gate-content-wrap button{
+  padding: 1rem 3rem !important;
+} */
+
+}
+
+.subscription-gate .gate-wrap .gate-content-wrap::after {
+  position: absolute;
+  content: '';
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 11px;
+  transform: translateY(-50%);
+  background: url('https://cdn-3.convertexperiments.com/uf/10025040/10024672/1581078881JS-LadyImage.png');
+  border: 1px solid #ff8100;
+  border-radius: 100%;
+  padding: 5px;
+  background-size: 90px 90px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+html body .bm-button button.bm-yes {
+  margin-right: 20px;
+}
+
+html body .gate-content-wrap .sign-up-desc,
+html body .subscription-gate .overlay-bg {
+  display: none;
+}
+
+html body .subscription-gate .gate-content-wrap .sign-up-desc .disclaimer a {
+  color: #777;
+  text-decoration: underline;
+}
+
+html body .sign-up-desc h2.headline,
+html body .sign-up-desc p.body,
+html body p.bm-heading,
+html body .bm-sub-heading {
+  color: #333333;
+  font-size: 18px !important;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.bm-button button {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 21px;
+  text-align: center;
+  width: 92px;
+  height: 32px;
+  border-radius: 8px !important;
+  border: solid 1px #cccccc !important;
+  background: #ffffff !important;
+  color: #363636 !important;
+  line-height: 1px;
+  text-align: center;
+  padding: 0px !important;
+  margin-top: 15px;
+}
+
+html body .sign-up-desc p.body,
+html body .bm-sub-heading {
+  font-weight: 600;
+}
+
+.bm-button button:focus,
+.bm-button button:hover {
+  background: #ff8100 !important;
+  color: #fff !important;
+}
+
+@media screen and (max-width:990px) and (min-width:768px) {
+
+  html body .sign-up-desc h2.headline,
+  html body .sign-up-desc p.body,
+  html body p.bm-heading,
+  html body .bm-sub-heading {
+    font-size: 17px !important;
+  }
+}
+
+@media screen and (max-width:767px) {
+
+  .subscription-gate .gate-wrap .gate-content-wrap::after {
+    width: 52px;
+    height: 52px;
+    top: 17px;
+    background-size: 45px 45px;
+    transform: none;
+    left: 20px;
+  }
+
+  html body .subscription-gate .gate-content-wrap {
+    padding-bottom: 15px;
+    top: 0;
+    padding-top: 78px;
+    z-index: 21474836499 !important;
+  }
+
+  html body .bm-thanks757 {
+    justify-content: center;
+    padding: 50px 0px !important;
+  }
+
+  html body .subscription-gate .gate-content-wrap input {
+    width: 80% !important;
+  }
+
+  html body .sign-up-desc h2.headline,
+  html body .sign-up-desc p.body,
+  html body p.bm-heading,
+  html body .bm-sub-heading {
+    font-size: 16px !important;
+    line-height: 21px !important;
+  }
+
+  html body .subscription-gate .gate-content-wrap .sign-up-desc .disclaimer {
+    margin-bottom: 0px !important;
+  }
+
+  html body .subscription-gate .gate-content-wrap #entry-gate-error {
+    font-size: 13px;
+    margin-bottom: 0px !important;
+  }
+
+}
+
+@media screen and (max-width:350px) {
+
+  html body .sign-up-desc h2.headline,
+  html body .sign-up-desc p.body,
+  html body p.bm-heading,
+  html body .bm-sub-heading,
+  html body .subscription-gate .gate-content-wrap input,
+  html body .subscription-gate .gate-content-wrap button,
+  html body .subscription-gate .gate-content-wrap input::placeholder {
+    font-size: 14px !important;
+  }
+
+  html body .subscription-gate .gate-content-wrap .sign-up-desc .disclaimer {
+    font-size: 10px !important;
+    margin-bottom: 0px !important;
+    padding-top: 0px !important;
+  }
+}
