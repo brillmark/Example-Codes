@@ -1,0 +1,7 @@
+{
+	"files": [
+		"./variationC/variation.css",
+		"./variationC/variation.js"
+	],
+	"inject": "window.optimizely && window.optimizely.get"
+}
