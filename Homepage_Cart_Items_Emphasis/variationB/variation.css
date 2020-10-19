@@ -1,0 +1,120 @@
+/************* Standard CSS section for desktop and laptop browsers **************/
+
+/* Variation 0.1 */
+
+.home-header .home-header__images, .home-header .home-header__content {
+	visibility: hidden;
+}
+
+.home-header .home-header__images {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.home-header .home-header__images > img {
+	visibility: hidden;
+}
+
+.dd-clear {
+	clear: both;
+}
+
+/* clearfix code */
+.dd-clearfix:after {
+	clear: both;
+	content: '.';
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+/* End clearfix code */
+.dd-hide {
+	display: none !important;
+}
+
+.dd-flex-property {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webdit-flex;
+	display: flex;
+}
+
+.dd-flex-size {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	width: 20%;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.dd-home-cart-v1-blade {
+}
+
+.dd-home-cart-v1-blade-inner {
+}
+
+.dd-home-cart-v1-home-hero-img {
+}
+
+/*.dd-home-cart-v1-home-hero-content.home-header__content {
+	width: 100%;
+	height: 100%;
+	display: table;
+	position: absolute;
+	top: 0;
+	left: 0;
+}*/
+
+/*.dd-home-cart-v1-home-hero-content.home-header__content .home-hero__text {
+	width: 100%;
+	height: 47.2vw;
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+}*/
+
+/*.dd-home-cart-v1-home-hero-content.home-header__content .home-hero__text > .main-home-title {
+	margin-top: -160px !important;
+}*/
+.dd-home-cart-v1-home-hero-content.home-header__content .home-hero__text > .main-home-subtitle {
+	color: #fff;
+}
+
+/************* END Standard CSS section for desktop and laptop browsers **************/
+
+/*************media queries**************/
+@media only screen and (min-width:0) and (max-width:640px) {
+	.dd-hide-on-mobile {
+		display: none;
+	}
+
+	.home-header .home-header__images {
+		background: none;
+	}
+
+	.home-header .home-header__images > img {
+		visibility: visible;
+	}
+
+}
+
+@media only screen and (min-width:480px) and (max-width:640px) {
+}
+
+@media only screen and (min-width:641px) and (max-width:1024px) {
+}
+
+@media only screen and (min-width:1024px) and (max-width:1279px) {
+}
+
+@media only screen and (min-width:1280px) and (max-width:1439px) {
+}
+
+@media only screen and (min-width:1542px) {
+}
+
+/*************END media queries**************/
