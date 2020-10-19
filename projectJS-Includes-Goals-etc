@@ -1,0 +1,697 @@
+/** Code written by previous CRO companies or by client- Starts here**/
+/* global window, document, console */
+
+window.optimizely = window.optimizely || [];
+
+
+try {
+  (function () {
+    /**
+     * HotJar Triggering and Recording Tagging
+     * @author matthew.gossage@crometrics.com (2/3/17)
+     * @author chase.marlow@crometrics.com (12/22/17)
+     * @author amanda.smith@crometrics.com (5/22/18)
+     * @author andrew.wessels@crometrics.com (7/9/18)
+     *
+     * Adds a `campaignDecided` listener and uses it to trigger and tag hotjar recordings.
+     */
+
+    //Note: name values are not available if "Mask descriptive names in project code and third-party integrations" snippet privacy setting is enabled.
+    var parseTag = function parseTag(name) {
+      var availableCharacters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 36;
+
+      if (name) {
+        var nameMatch = name.match(/^([a-zA-Z]+)-?([\d\.]+)/);
+        if (nameMatch) {
+          return '' + nameMatch[1].toLowerCase() + nameMatch[2];
+        } else {
+          return name.toLowerCase().substr(0, availableCharacters).trim().replace(/[^a-z0-9]+/g, '-');
+        }
+      }
+    };
+
+    var getCampaignTag = function getCampaignTag(campaign, experience, availableCharacters) {
+      var campaignName = parseTag(experience.campaignName) || campaign.id || 'unknown';
+      //experience.name if a name is explicitly set, experience.audienceName if one is implicitly given
+      var audienceName = parseTag(experience.name || experience.audienceName) || experience.id || 'unknown';
+      if (campaignName.length + audienceName.length + 1 > availableCharacters) {
+        //if the name is too long, trim the longer of the two values
+        if (campaignName.length > audienceName.length) {
+          campaignName = campaignName.substr(0, availableCharacters - audienceName.length - 1);
+        } else {
+          audienceName = audienceName.substr(0, availableCharacters - campaignName.length - 1);
+        }
+      }
+      return campaignName + '-' + audienceName;
+    };
+
+    var getExperimentTag = function getExperimentTag(experiment, availableCharacters) {
+      return parseTag(experiment.name, availableCharacters) || experiment.id || 'unknown';
+    };
+
+    // Trigger and Tag Hotjar.
+    var campaignDecided = function campaignDecided(event) {
+      // Also, only track if we're not part of the holdback.
+      if (event.data.decision.isCampaignHoldback === false && event.data.decision.variationId !== null) {
+        var decision = event.data.decision;
+        var campaign = event.data.campaign;
+        var experiment = window.optimizely.get('data').experiments[decision.experimentId];
+
+        var varTag = function (variations, variationId) {
+          for (var i = 0; i < variations.length; i++) {
+            if (variations[i].id === variationId) {
+              return 'v' + i;
+            }
+          }
+          return variationId;
+        }(experiment.variations, decision.variationId);
+
+        var availableCharacters = 50 - varTag.length - 1;
+
+        var experimentTag = experiment.hasOwnProperty('campaignName') ? getCampaignTag(campaign, experiment, availableCharacters) : getExperimentTag(experiment, availableCharacters);
+
+        //note: trigger_name.length must be <= 50
+        var trigger_name = (experimentTag + '-' + varTag).substr(0, 50); //failsafe truncation
+
+        ;(function pollforHJ() {
+          if (window.hj && window.hj.q) {
+            window.hj('trigger', trigger_name);
+            window.hj('tagRecording', [trigger_name]);
+          } else setTimeout(pollforHJ, 500);
+        })();
+      }
+    };
+
+    window.optimizely.push({
+      type: "addListener",
+      filter: {
+        type: "lifecycle",
+        name: "campaignDecided"
+      },
+      // Add the campaignDecided function as a handler.
+      handler: campaignDecided
+    });
+  })();
+} catch (e) {
+  console.log(e);
+}
+
+try {
+  (function () {
+    /*
+      Inverse of 1 session, 1 page, clicked log in attribute
+      Author: Chase Marlow (chase.marlow@crometrics.com)
+      Last Modified: 12/06/17
+    
+      Sets attribute for users who aren't a part of the 1 session, 1 page, clicked log in group
+    */
+
+    // Wait for the optimizely activated callback so we can use the behavior query
+    ;(function () {
+      window.optimizely.push({
+        type: "addListener",
+        filter: {
+          type: "lifecycle",
+          name: "activated"
+        },
+        handler: function handler() {
+          var behavior = window.optimizely.get('behavior');
+
+          var pageCount = behavior.query({
+            'version': '0.2',
+            'filter': [{ 'field': ['type'], 'value': 'pageview' }, { 'field': ['name'], 'value': '7535253115_sitewide' }],
+            'reduce': { 'aggregator': 'count' }
+          });
+          var customCount = behavior.query({
+            'version': '0.2',
+            'filter': [{ 'field': ['type'], 'value': 'custom' }],
+            'reduce': { 'aggregator': 'count' }
+          });
+
+          if (pageCount > 1 || customCount > 0) {
+            window.optimizely.push({
+              'type': 'user',
+              'attributes': {
+                'one-session-one-page-clicked-log-in': true
+              }
+            });
+          }
+        }
+      });
+    })();
+  })();
+} catch (e) {
+  console.log(e);
+}
+
+try {
+  (function () {
+    /**
+     * Optimizely campaign cookie
+     * @author Chase Marlow <chase.marlow@crometrics.com>
+     * Last Modified: 6/15/18
+     *
+     * Adds and updates an `opt_campaign` cookie with campaigns
+     * each user has seen.
+    */
+
+    var cookie = {
+      set: function set(name, value, optDays, domain) {
+        var cookie = name + '=' + value;
+        if (optDays) {
+          var date = new Date();
+          date.setTime(date.getTime() + optDays * 24 * 60 * 60 * 1000);
+          cookie += '; expires=' + date.toGMTString();
+        }
+        if (domain) {
+          cookie += '; domain=' + domain;
+        }
+        document.cookie = cookie + '; path=/';
+      },
+      get: function get(name) {
+        var nameEQ = name + '=';
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+          }if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+    };
+
+    window.optimizely.push({
+      type: "addListener",
+      filter: {
+        type: "lifecycle",
+        name: "campaignDecided"
+      },
+      handler: function handler(event) {
+        // Only track if we're not part of the holdback.
+        if (event.data.decision.isCampaignHoldback === false && event.data.decision.variationId !== null) {
+          var variationName = window.optimizely.get('data').variations[event.data.decision.variationId].name;
+          var campaignName = event.data.campaign.name;
+          
+          if (variationName && campaignName) {
+
+            var cookieName = campaignName + ' ' + variationName;
+  
+            // Slugify the trigger_name.
+            if(cookieName.indexOf('0016000000L2VrmAAF')>-1 || cookieName.indexOf('0016000000d2XPvAAM')){
+              cookieName = cookieName.replace(/\((evar.*?)\)|\[(.*?)\]/g, '').trim().replace(/[^a-zA-Z0-9]+/g, '-');
+            } else {
+              cookieName = cookieName.toLowerCase().replace(/\((evar.*?)\)|\[(.*?)\]/g, '').trim().replace(/[^a-z0-9]+/g, '-');
+            }
+            var existingCookie = cookie.get('opt_campaign') || '';
+
+            if (existingCookie.indexOf(cookieName) === -1) {
+              var newCookie = cookieName + '|' + existingCookie;
+
+              var checkLength = function checkLength() {
+                if (newCookie.length > 2000) {
+                  newCookie = newCookie.split('|');
+                  newCookie.pop();
+                  newCookie = newCookie.join('|');
+
+                  checkLength();
+                }
+              };
+              checkLength();
+
+              cookie.set('opt_campaign', newCookie, 30, '.box.com');
+            }
+
+           
+          }
+        }
+      }
+    });
+  })();
+} catch (e) {
+  console.log(e);
+}
+
+
+/*
+  Box, Inc Omniture event hijacking for Optimizely
+  Author: Matthew Tyree (matthew.tyree@crometrics.com)
+  Last Modified: 10/18/17
+
+  Captures Omniture events and passes them into Optimizely for tracking.
+*/
+(function () {
+  // Basic param parsing and retrieval from the url.
+  function getParam(name, optSearch) {
+    'use strict';
+
+    optSearch = optSearch || location.search;
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
+        results = regex.exec(optSearch);
+
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  // Be sure we have the optimizely object setup.
+  window["optimizely"] = window["optimizely"] || [];
+
+  // Poll for the other tracking API.
+  (function poll() {
+    if (!window.hasOwnProperty("s") || !window.s.hasOwnProperty("registerPreTrackCallback")) return setTimeout(poll, 50);
+
+    // Add a pre-track callback to get our event data out.
+    window.s.registerPreTrackCallback(function () {
+      try {
+        // We're only interested in the latest event.
+        var url = arguments[0],
+            event = getParam('events', url); // Maps to Omniture event by ID#.
+        //name  = decodeURI( getParam( 'c1', url ) || getParam( 'pev2', url ) ); // Maps loosely to event by name.
+
+        if (event) {
+          // Track the event.
+          window.optimizely.push({
+            type: "event",
+            eventName: event
+          });
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    });
+  })();
+})();
+
+
+/** Code written by previous CRO companies or by client- Ends here**/
+
+/** Code written by funnelenvy. Starts here **/
+
+// youtube script for free trial
+try {
+  (function () {
+    if (window.location.pathname == '/free-trial') {
+      var tag = document.createElement('script');
+
+      tag.src = 'https://www.youtube.com/iframe_api';
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+  })();
+} catch (e) {
+  console.log(e);
+}
+
+
+// MktoForms2 submissions
+
+(function () {
+ var wLocationPath = window.location.pathname;
+
+ var FEHelper = {
+
+   // waitfor MktoForms2
+   doWhenMktoForms2Loaded: function (todoWhenLoaded) {
+     var waitForMktoForms2 = setInterval(
+       function () {
+         if (typeof window.MktoForms2 != 'undefined') {
+           clearInterval(waitForMktoForms2);
+           todoWhenLoaded();
+         }
+       }, 50);
+
+     setTimeout(function () {
+       clearInterval(waitForMktoForms2);
+     }, 8000);
+   }
+ };
+
+   // Tracks custom event: Form submissions on all webinar pages
+   // after successful form submission on following pages
+   if (
+   wLocationPath === '/FY19Q2_07_US_WBNR_1786816_RelayProspects_07.17.18_Registration.html' ||
+   wLocationPath === '/FY19Q2_06_US_WBNR_1650900-SecurityPanelLive-Webinar_06.21.18_Registration.html' ||
+   wLocationPath === '/FY19Q2-US_Webinar_Governance-Weekly.html' ||
+   wLocationPath === '/Box-Zones-On-Demand.html' ||
+   wLocationPath === '/FY19Q2-US_Webinar_CCM-Weekly.html' ||
+   wLocationPath === '/FY19Q2-US_Webinar_Governance-Weekly.html' 
+
+ ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     var eventName = 'Fe form submissions logicmonitor';
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+
+           
+            window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+                type: "event",
+                eventName: "Form submissions on all webinar pages",
+                tags: {
+                    revenue: 0, // Optional in cents as integer (500 == $5.00)
+                    value: 0.00 // Optional as float
+                }
+            });
+
+       });
+     });
+   });
+ }
+
+     // Tracks custom event: FE-form_submissions
+     // after successful form submission on following pages
+     if (
+      wLocationPath.indexOf("/content-management/5-steps-to-good-governance") != -1 ||
+      wLocationPath.indexOf("FY19Q3_08_US_WBNR_1791071_Security_Saas_09.18.18_LP.html") != -1 ||
+      wLocationPath.indexOf("/FY19Q3_09_US_WBNR_1791077_5Considerations_09.25.18_Registration.html") != -1 ||
+      wLocationPath.indexOf("/FY19Q2_08_US_WBNR_1791061_Building-Custom-Apps_080718_LP.html") != -1 ||
+      wLocationPath.indexOf("/FY19Q2_07_US_WBNR_1650910_Insurance_07.19.18_Registration.html") != -1 ||
+      wLocationPath.indexOf("/FY18Q4_12_US_WBNR_PlatformRetailCPG_12.5.17_Registration-Page.html") != -1 ||
+      wLocationPath.indexOf("/FY19Q3_09_US_WBNR_1791086_Governance_100418_Registration1.html") != -1 ||
+      wLocationPath.indexOf("/security/governance-and-compliance/magic-of-information-governance") != -1 ||
+      wLocationPath.indexOf("/resources/sdp-lob-and-governance") != -1 ||
+      wLocationPath.indexOf("/resources/gdpr-ebook") != -1 ||
+      wLocationPath.indexOf("/FY19Q3_08_US_WBNR_1791071_Security_Saas_09.18.18_LP.html") != -1 ||
+      wLocationPath.indexOf("/resources/sdp-secure-content-in-the-cloud") != -1 ||
+      wLocationPath.indexOf("/FY19Q1_05_US_WBNR_1650904_MultiZones_05.31.18_Registration.html") != -1 ||
+      wLocationPath.indexOf("/FY19Q1_02_US_WBNR_1578351_GDPR_2.28.18_Registration.html") != -1
+
+ ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+            window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+                type: "event",
+                eventName: "FE-form_submissions",
+                tags: {
+                    revenue: 0, // Optional in cents as integer (500 == $5.00)
+                    value: 0.00 // Optional as float
+                }
+            });
+
+       });
+     });
+   });
+ }
+ 
+ // Tracks custom event: [FE]Form Submissions
+ // after successful form submission on following pages
+ if ( 
+  wLocationPath.indexOf("/resources/dm/free-trial") != -1||
+  wLocationPath.indexOf("free-trial") != -1||
+  wLocationPath.indexOf("resources/dm/free-trial/home") != -1||
+  wLocationPath.indexOf("resources/dm/free-trial") != -1||
+  wLocationPath.indexOf("free-trial/ccr") != -1||
+  wLocationPath.indexOf("free-trial/cloud-storage") != -1||
+  wLocationPath.indexOf("free-trial/collaborate") != -1||
+  wLocationPath.indexOf("free-trial/document-management") != -1||
+  wLocationPath.indexOf("free-trial/ftp-alternative") != -1||
+  wLocationPath.indexOf("free-trial/secure-file-sharing") != -1||
+  wLocationPath.indexOf("free-trial/send-large-files") != -1||
+  wLocationPath.indexOf("resources/dm-compress-files") != -1||
+  wLocationPath.indexOf("resources/dm-dropbox") != -1||
+  wLocationPath.indexOf("resources/dm-file-uploads") != -1||
+  wLocationPath.indexOf("resources/dm-send-zipped-files") != -1||
+  wLocationPath.indexOf("resources/dm-video-file-transfer") != -1||
+  wLocationPath.indexOf("resources/dm/capture") != -1||
+  wLocationPath.indexOf("resources/dm/collaborative-editor") != -1||
+  wLocationPath.indexOf("resources/dm/create-edit-documents") != -1||
+  wLocationPath.indexOf("resources/dm/document-collaboration") != -1||
+  wLocationPath.indexOf("resources/dm/folder-sharing") != -1||
+  wLocationPath.indexOf("resources/dm/docusign") != -1||
+  wLocationPath.indexOf("resources/dm/free-trial/file-sharing") != -1||
+  wLocationPath.indexOf("resources/dm/google") != -1||
+  wLocationPath.indexOf("resources/dm/hipaa-cloud-storage") != -1||
+  wLocationPath.indexOf("resources/dm/online-backup") != -1||
+  wLocationPath.indexOf("resources/dm/send-large-attachments") != -1||
+  wLocationPath.indexOf("resources/dm/share-video-files") != -1||
+  wLocationPath.indexOf("free-trial/office365") != -1||
+  wLocationPath.indexOf("resources/dm/free-trial/dropbox") != -1||
+  wLocationPath.indexOf("resources/dm/free-trial/onedrive") != -1||
+  wLocationPath.indexOf("free-trial/file-sharing") != -1||
+  wLocationPath.indexOf("fr-fr/free-trial") != -1||
+  wLocationPath.indexOf("de-de/free-trial") != -1||
+  wLocationPath.indexOf("en-gb/free-trial") != -1||
+  wLocationPath.indexOf("nl-nl/free-trial") != -1||
+  wLocationPath.indexOf("sv-se/free-trial") != -1
+ ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "Form Submissions",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ }
+   
+   // Tracks custom event: [FE]Free-trial Form Submissions
+   // after successful form submission on /free-trial page
+   if ( wLocationPath.indexOf("/free-trial") != -1) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+          window['optimizely'] = window['optimizely'] || [];
+          window['optimizely'].push({
+           type: "event",
+          eventName: "fe_free-trial_Form_Submissions",
+          tags: {
+          revenue: 0, // Optional in cents as integer (500 == $5.00)
+          value: 0.00 // Optional as float
+        }
+      });
+
+       });
+     });
+   });
+ }
+  
+  // Tracks custom event: [FE]box-78 mrkto form submission
+  // after successful form submission on following pages
+  if (
+      wLocationPath.indexOf("/PlatformODWebinar_content-experiences-in-apps.html") != -1 ||
+      wLocationPath.indexOf("/Box-Microsoft-Better-collaboration-and-security_OnDemandLP.html") != -1 ||
+      wLocationPath.indexOf("/Information-Governance-On-Demand.html") != -1 ||
+      wLocationPath.indexOf("/Box-Zones-On-Demand.html") != -1 ||
+      wLocationPath.indexOf("/How-the-Financial-Industry-is-Powering-Apps-with-Box-Platform-On-Demand.html") != -1 ||
+      wLocationPath.indexOf("/Introducing-the-All-New-Box_On-Demand.html") != -1 ||
+      wLocationPath.indexOf("/Live-Demo-New-Box-Provider-Solution_OnDemand.html") != -1 ||
+      wLocationPath.indexOf("/PlatformODWebinar_content-experiences-in-apps.html") != -1 ||
+      wLocationPath.indexOf("/PlatformODWebinar_content-experiences-in-apps.html") != -1 ||
+      wLocationPath.indexOf("/Creating-Digital-Experiences-for-Insurance-Customers-Registration.html") != -1 ||
+      wLocationPath.indexOf("/July-Commercial-Summer-Series_Registration.html") != -1 ||
+      wLocationPath.indexOf("/Box-O365-Integration_Registration.html") != -1 ||
+      wLocationPath.indexOf("/Box-Platform-for-Financial-Services.html") != -1 ||
+      wLocationPath.indexOf("/Box-Platform-for-Financial-Industry-Webinar-053117-Registration.html") != -1 ||
+      wLocationPath.indexOf("/Whats-New-In-Box-Registration.html") != -1 ||
+      wLocationPath.indexOf("/FY18Q3-US-Webinar_Box-Drive_Sept_Registration-Page.html") != -1 ||
+      wLocationPath.indexOf("/Digitize-Outdated-Financial-Services-Processes-Registration.html") != -1 ||
+      wLocationPath.indexOf("/5-Box-Tips-Registration.html") != -1 ||
+      wLocationPath.indexOf("/CCM-Overview-Registration.html") != -1 ||
+      wLocationPath.indexOf("/FY18Q3_09_US_WBNR_1409785_BoxRelayWebinar_11.30.2017_Registration-Page.html") != -1 ||
+      wLocationPath.indexOf("/FY18Q3_09_US_WBNR_1503293_Security-ClientObligation_09.26.2017_Registration-Page.html") != -1 ||
+      wLocationPath.indexOf("/Digitize-Outdated-Financial-Services-Processes-Registration.html") != -1 ||
+      wLocationPath.indexOf("/5-Box-Tips-Registration.html") != -1 ||
+      wLocationPath.indexOf("/pricing/enterprise-license-agreement/contact-us") != -1||
+      wLocationPath.indexOf("/resources/forrester-ecm") != -1||
+      wLocationPath.indexOf("paas/content-services-for-apps-ebook") != -1||
+      wLocationPath.indexOf("/about-us/executive-innovation-center") != -1||
+      wLocationPath.indexOf("/partners/channel-program/apply") != -1||
+      wLocationPath.indexOf("/en-gb/resources/forrester-ecm") != -1||
+      wLocationPath.indexOf("/5-box-tips-registration-2.html") != -1||
+      wLocationPath.indexOf("/boxworks/blueprint/boxworks/blueprint/partners/technology-program/apply") != -1||
+      wLocationPath.indexOf("/es-es/partners/channel-program/apply") != -1||
+      wLocationPath.indexOf("/build-digital-experiences-with-box-platform_ondemand.html") != -1||
+      wLocationPath.indexOf("/de-de/partners/channel-program/apply") != -1||
+      wLocationPath.indexOf("/ja-jp/resources/forrester-ecm") != -1
+
+
+
+ ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+            window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+                type: "event",
+                eventName: "form_submissions-78",
+                tags: {
+                    revenue: 0, // Optional in cents as integer (500 == $5.00)
+                    value: 0.00 // Optional as float
+                }
+            });
+
+       });
+     });
+   });
+ }
+  
+  // Tracks custom event: [FE]-Contact_US Form Submissions
+  // after successful form submission on following pages
+  if ( wLocationPath.indexOf("/about-us/contact-us") != -1 ||
+      wLocationPath.indexOf("/quote") != -1) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "FE_Contact_Form_Submissions",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ }
+  
+    // Tracks custom event: Webinar form completes-drive
+    // after successful form submission on following pages
+    if ( wLocationPath.indexOf("/FY19Q1_US_WBNR_1578107_NetworkShares_April_042518_Registration1.html") != -1 ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "webinar-form-completes-drive",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ } 
+  
+    // Creates cookie
+    function FEsetCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  } 
+  
+      // Tracks custom event: Form submit starBucks
+      // after successful form submission on following pages
+      if (  window.location.href.indexOf("https://www.box.com/digest/contact-us?compid=sta") != -1 ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+         FEsetCookie("feAlreadyFormsub","true",365);
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "starBucks Special form submit",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ } 
+  
+  // Tracks custom event: [FE] ABM Digest Form Submit
+  // after successful form submission on following pages
+  if (  window.location.href.indexOf("https://www.box.com/digest") != -1 ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+         FEsetCookie("feAlreadyFormsub","true",365);
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "DigestFormSubmit",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ } 
+
+  // Tracks custom event: [FE] ABM After Digest Page Form Submits
+  // after successful form submission on following pages
+  if (  window.location.href.indexOf("https://go.box.com/FY19Q1_05_US_WBNR_1649823_GxP_05.15.18_Registration.html") != -1 ||
+        window.location.href.indexOf("https://www.box.com/resources/ccm-life-sciences") != -1 ||
+        window.location.href.indexOf("https://www.box.com/resources/ecm-strategy-with-ccm-ebook") != -1 ||
+        window.location.href.indexOf("https://www.box.com/resources/choosing-collaboration-platform-ebook") != -1
+     ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+         FEsetCookie("feAlreadyFormsub","true",365);
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "AfterDigestPageForms",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ } 
+
+//Track form submission on /resources/demo
+    if ( wLocationPath.indexOf("/resources/demo") != -1 ) {
+
+   FEHelper.doWhenMktoForms2Loaded(function () {
+     MktoForms2.whenReady(function (form) {
+       form.onSuccess(function (callback) {
+         FEsetCookie("feBox118formSubmitted","true",365);
+           window['optimizely'] = window['optimizely'] || [];
+            window['optimizely'].push({
+              type: "event",
+              eventName: "FE_DemoFormSubmission",
+              tags: {
+              revenue: 0, // Optional in cents as integer (500 == $5.00)
+              value: 0.00 // Optional as float
+            }
+          });
+
+       });
+     });
+   });
+ } 
+  
+  
+})();
+
+
+
+/** Code written by funnelenvy. Ends here **/
