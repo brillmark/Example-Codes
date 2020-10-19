@@ -1,0 +1,198 @@
+.bmHidden {
+    display: none;
+}
+#Section3 .agenda-section > div > div > div:first-child {
+    background: transparent;
+}
+
+/*=====MULTI STEP FORM======*/
+
+form.mktoForm .mktoFormRow {
+    display: none;
+}
+.fe_show {
+    display: block !important;
+}
+html body .form-container.bmForm-show {
+    opacity: 1;
+}
+html body .agenda-section {
+    padding-top: 40px;
+}
+
+/* Multiple step section */
+
+.StepsSection_bar {
+    width: 100%;
+    height: 10px;
+    background: #c3d1d9;
+    border-radius: 10px;
+    position: relative;
+}
+.StepsSection {
+    padding: 20px 40px;
+    margin-bottom: 30px;
+}
+.StepsSection_bar .step1,
+.StepsSection_bar .step2 {
+    height: 17px;
+    width: 17px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #fff;
+    margin-top: -4px;
+    box-shadow: 0px 6px 4px -3px #c3d1d9;
+    position: absolute;
+    z-index: 9;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+}
+.StepsSection_bar .step1::after {
+    content: "Step 1";
+    font-size: 16px;
+    display: inline-block;
+    color: #72848e;
+    font-weight: normal;
+    width: 60px;
+    margin-top: 15px;
+    margin-left: -14px;
+}
+.StepsSection_bar .step2::after {
+    content: "Step 2";
+    font-size: 16px;
+    display: inline-block;
+    color: #72848e;
+    font-weight: normal;
+    width: 60px;
+    margin-top: 15px;
+    margin-left: -14px;
+}
+.StepsSection_bar .progressBar {
+    width: 50%;
+    height: inherit;
+    background: #0061d5;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    transition: all 0.4s ease-in-out;
+}
+.StepsSection_bar .step1 {
+    left: 46%;
+}
+.StepsSection_bar .step2 {
+    right: -2px;
+}
+.form-container.step1Complete .StepsSection_bar .step1{
+    background-color: #0061d5;
+}
+.form-container.step1Complete .StepsSection_bar .progressBar {
+    width: 100%;
+}
+html body .banner-text h1,
+html body .banner-text h4 {
+    line-height: 45px !important;
+    margin-top: 0px;
+    text-align: center !important;
+}
+html body .banner-background .banner-text #Banner-Title p {
+    line-height: normal;
+}
+html body .banner-background .banner-text {
+    padding: 30px 0;
+    padding-top: 55px;
+}
+
+
+/* Marketo form input */ 
+html body .mktoFormRow label[for="inputCountry"],
+html body .mktoFormRow label[for="Opted_In_Box__c"] {
+    pointer-events: none;
+}
+html body .form-container form .bmInput {
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    top: -6px;
+    background: transparent;
+    width: 100% !important;
+}
+html body .form-container form .mktoButtonRow button {
+    width: 100%;
+}
+html body .form-container {
+    text-align: center;
+    opacity: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 7px 23px -7px #c3d1d9;
+    min-height: 342px;
+    padding: 30px;
+    padding-top: 20px;
+}
+/* Banner Section */ 
+
+html body .banner-text h1 span {
+    font-size: 50px;
+}
+
+html body #Section3 .duo-tone {
+    background: none !important;
+}
+#Banner-Title > * {
+    text-align: center !important;
+}
+
+html body .mktoForm .mktoLabel.bmLabel {
+    margin-left: 15px !important;
+    line-height: normal !important;
+    z-index: 99;
+    background: #fff;
+    padding: 0px !important;
+    max-width: max-content !important;
+    width: auto !important;
+    white-space: nowrap;
+    flex: 0 1 auto !important;
+    padding-left: 3px;
+    display: inline-block !important;
+    cursor: text;
+    transition: all 0.1s ease-in-out;
+}
+html body .bmLabel.bmAnim {
+    transform: translate(0, -2.295rem) scale(1);
+    color: #93a5b1 !important;
+}
+.bmInput:focus {
+    outline: none;
+}
+html body .form-container form .mktoFormRow {
+    padding-bottom: 1px;
+    margin-bottom: 20px !important;
+}
+
+html body .mktoForm .mktoError {
+    z-index: 100;
+}
+
+html body #demandbase-autocomplete > .ui-widget > .ui-widget {
+    z-index: 100 !important;
+}
+
+html body .banner-background .banner-text {
+    padding-left: 15px;
+    text-align: left;
+}
+
+html body #Form-Title h3{
+    font-weight: 300;
+}
+
+@media (max-width: 480px) {
+    html body .mktoForm .mktoFieldWrap {
+        display: flex;
+        float: left;
+    }
+}
