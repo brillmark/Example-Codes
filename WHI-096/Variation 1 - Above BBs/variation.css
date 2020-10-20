@@ -1,0 +1,221 @@
+html body .BmDbOverview, html body .BmDbSubHeading, html body .BmDbFooter p {
+	font-family : StagSansWeb-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+  
+  html body .BmDbProductDetails p {
+	font-family : OpenSans-Regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+  html body .BmDbSection {
+	border : 2px solid rgb(191, 191, 191);
+	border-radius : 5px;
+	margin : 24px 0px;
+  }
+  
+  html body .BmDbSection .BmDbWrapper {
+	padding : 20px;
+  }
+  
+  html body .BmDbHeading {
+	font-size : 28px;
+	margin-top : 7px;
+  }
+  
+  html body .BmDbSection .BmDbProductBox {
+	display : flex;
+  }
+  
+  html body .BmDbSection .BmDbProductImg {
+	width : 48%;
+  }
+  
+  html body .BmDbSection .BmDbProductImg img {
+	width : 100%;
+	max-width : 233px;
+  }
+  
+  html body .BmDbProductDetails {
+	width : 50%;
+	margin-bottom: 30px;
+  }
+  
+  html body .BmDbProductDetails li {
+	width : 33.33%;
+	display : flex;
+	justify-content : center;
+	flex-direction : column;
+  }
+  
+  html body .BmDbProductDetails p {
+	font-size : 17px;
+	margin-top : 2px;
+  }
+  
+  html body .BmDbProductDetails h5 {
+	color : rgb(0, 0, 0);
+	font-size : 19px;
+	padding-top : 10px;
+	text-transform : uppercase;
+	font-family : OpenSans-Semibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+  html body .BmDbThumbnail {
+	display : flex;
+	margin-top : 47px;
+  }
+  
+  html body .BmDbThumbnail li:nth-child(2) {
+	border-left : 1px solid rgb(241, 241, 241);
+	border-right : 1px solid rgb(241, 241, 241);
+  }
+  
+  html body .BmDbThumbnail li:nth-child(2), html body .BmDbThumbnail li:nth-child(3) {
+	align-items : center;
+  }
+  
+  html body .BmDbSubHeading {
+	margin : 10px 0px;
+	font-weight : normal;
+	font-size : 18px;
+	color : rgb(37, 37, 37);
+  }
+  
+  html body .BmDbTestScore span {
+	font-size : 12px;
+	margin-bottom : 3px;
+  }
+  
+  html body .BmDbTestScore h3 {
+	color : rgb(228, 53, 48);
+	padding : 0px 0px 0px 11px;
+	font-size : 23px;
+	line-height : 25px;
+  }
+  
+  html body .BmDbPrice {
+	font-weight : 600;
+	line-height : 30px;
+	font-size : 22px;
+  }
+  
+  html body .BmDbFooter {
+	background-color : rgb(250, 250, 250);
+	text-align : center;
+	padding : 2px 10px;
+  }
+  
+  html body .BmDbSignUp {
+	font-size : 20px;
+	line-height : 42px;
+	height : 42px;
+	border-radius : 24px;
+	background-color : rgb(17, 92, 203);
+	color : rgb(255, 255, 255);
+	padding : 0px 31px;
+	display : inline-block;
+	font-family : StagSansWeb-Light, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+  html body .BmDbLogin {
+	margin-top : 5px;
+	font-size : 14px;
+  }
+  
+  html body .BmDbSignUp:hover {
+	text-decoration-line : none;
+	text-decoration-style : initial;
+	text-decoration-color : initial;
+	box-shadow : rgba(0, 0, 0, 0.35) 2px 4px 8px 0px;
+  }
+  
+  html body .BmDbFooter p b, html body .BmDbOverview>span {
+	font-family : OpenSans-Semibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  
+  html body .BmDbLogin a {
+	color : rgb(12, 30, 130);
+	border-bottom : 1px solid rgb(12, 30, 130);
+  }
+  
+  html body .BmDbDontBuy svg {
+	height : 50px;
+	width : 50px;
+  }
+  
+  html body .BmDbSignUp svg polygon {
+	stroke : rgb(255, 255, 255);
+  }
+  
+  html body .BmDbSignUp img {
+	position : relative;
+	top : 4px;
+  }
+  
+  html body .BmDbFooter p {
+	margin : 0px;
+	padding : 15px 0px;
+  }
+  
+  html body .BmDbFooter .BmDbLogin {
+	padding : 6px 0px 10px 0px;
+  }
+  @media screen and (max-width: 600px) {
+	html body .BmDbSection .BmDbProductImg {
+	  order : 2;
+	}
+  
+	html body .BmDbSection .BmDbProductBox {
+	  flex-direction : column;
+	}
+  
+	html body .BmDbProductDetails, html body .BmDbSection .BmDbProductImg {
+	  width : 100%;
+	}
+  
+	html body .BmDbThumbnail {
+	  margin-top : 22px;
+	}
+  
+	html body .BmDbProductDetails {
+	  margin-bottom : 24px;
+	  max-width : 263px;
+	  margin-top : 17px;
+	}
+  
+	html body .BmDbSubHeading {
+	  margin-bottom : 0px;
+	}
+  
+	html body .BmDbHeading {
+	  font-size : 24px;
+	}
+  }
+  @media screen and (max-width: 480px) {
+	html body .BmDbProductDetails {
+	  max-width : 100%;
+	}
+  
+	html body .BmDbSection .BmDbProductImg img {
+	  max-width : 100%;
+	}
+  
+	html body .BmDbSignUp img {
+	  display : none;
+	}
+	html body .BmDbSection {
+	    border-left: none;
+        padding: 36px 0px;
+        border-right: none;
+        border-radius: 0;
+	}
+	html body .BmDbSection .BmDbWrapper{
+		padding: 0;
+	}
+  }
+
+  @media screen and (max-width: 320px) {
+	html body .BmDbSignUp {
+		font-size: 16px;
+	}
+  }
+  
